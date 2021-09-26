@@ -27,11 +27,7 @@ public class Main {
 
             // convert JSON file to map
             Root metData = mapper.readValue(Paths.get("sampleMet.json").toFile(), Root.class);
-
-
                 System.out.println("Met data from file: " + metData);
-
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -41,8 +37,6 @@ public class Main {
                 .request(MediaType.APPLICATION_JSON)
                 .get(Root.class);
 
-
         theLogger.info("GET result {}", root);
-
     }
 }
