@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" name="SupportBank" packages="">
+<Configuration status="warn" name="Weather" packages="">
     <Appenders>
         <File name="FileAppender" fileName="logs/MetOfficeWeather.log">
             <PatternLayout>
@@ -13,7 +13,6 @@
     <Loggers>
         <Root level="info">
             <AppenderRef ref="FileAppender"/>
-            <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>
 </Configuration>

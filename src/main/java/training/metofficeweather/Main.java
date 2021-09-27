@@ -9,11 +9,18 @@ import org.apache.logging.log4j.LogManager;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import training.metofficeweather.data.Root;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 public class Main {
     static final Logger theLogger = LogManager.getLogger("Weather");
+
+
     public static void main(String[] args) {
+
         theLogger.info("Application Started");
 
         String dataSource = (args.length == 0 ) ? "FILE" : args[0];
@@ -25,7 +32,9 @@ public class Main {
         } catch ( Exception e){
             e.printStackTrace();
         }
-
+        ApplicationProperties applicationProperties = new ApplicationProperties();
+        String weatherText = applicationProperties.getProperty("org.djna.weather." + "1", "Not Understood");
+        theLogger.info("Weather: {}", weatherText);
     }
 
     private static SiteListFetcher getSiteListFetcher(String dataSource) {
