@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
  * String values, accessed by name.
  */
 public class ApplicationProperties {
-    static final Logger theLogger = LogManager.getLogger("Weather");
+    private static final Logger theLogger = LogManager.getLogger("Weather");
 
-    Map<String,String> propertyMap;
-    String propertyFileName;
+    private Map<String,String> propertyMap;
+    private String propertyFileName;
 
     /*
      * Prepare properties for lookup with default.
