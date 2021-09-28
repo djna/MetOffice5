@@ -47,6 +47,8 @@ public class ApplicationProperties {
 
         theLogger.info("Properties: \n{}",
                 propertyMap.keySet().stream()
+                        .sorted()
+                        .filter( k -> k.startsWith("org.djna." ) )
                         .map( (k) -> k + "=" + propertyMap.get(k) )
                         .collect( Collectors.joining( "\n" ))
                 );
@@ -63,6 +65,7 @@ public class ApplicationProperties {
      * return named property or default if none found
      */
     String getProperty(String name, String defaultValue){
-          return propertyMap.getOrDefault(name, defaultValue );
+
+        return propertyMap.getOrDefault(name, defaultValue );
     }
 }

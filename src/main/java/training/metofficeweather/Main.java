@@ -33,7 +33,8 @@ public class Main {
             e.printStackTrace();
         }
         ApplicationProperties applicationProperties = new ApplicationProperties();
-        String weatherText = applicationProperties.getProperty("org.djna.weather." + "1", "Not Understood");
+        String weatherKey = "org.djna.weather.99999" ;
+        String weatherText = applicationProperties.getProperty(weatherKey, "Not Understood");
         theLogger.info("Weather: {}", weatherText);
     }
 
