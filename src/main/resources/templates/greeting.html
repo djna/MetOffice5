@@ -5,6 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<p th:text="'Hello ' + ${name} + '!'" />
+
+<form action="/weatherForLocation" method="GET">
+    <input type="text" name="surname" id="surname-id">
+
+    <select name="locationSelected" id="locationSelection">
+        <th:block th:each="location : ${locations}">
+            <option th:text="${location}" />
+        </th:block>
+    </select>
+    <input type="submit" value="Submit" >
+</form>
 </body>
 </html>
