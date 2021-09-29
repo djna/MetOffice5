@@ -33,6 +33,7 @@ public class GreetingController {
         return new ModelAndView("greetingInfo", "location", body) ;
     }
 
+    /* POST form data, deserialise to Map - OK */
     @RequestMapping(
             value = "/weatherForLocation",
             method= RequestMethod.POST,
@@ -43,6 +44,18 @@ public class GreetingController {
         return new ModelAndView("greetingInfo", "location", requestData) ;
     }
 
+    /* POST form data, deserialise to DTO object - fails */
+    @RequestMapping(
+            value = "/dtoWeatherForLocation",
+            method= RequestMethod.POST,
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
+    )
+    ModelAndView dtoFromPost(   @RequestBody GreetingData requestData ) {
+        System.out.println("just:" + requestData);
+        return new ModelAndView("greetingInfo", "location", requestData) ;
+    }
+
+    /* POST JSO, deserialise to DTO object - OK */
     @RequestMapping(
             value = "/jsonWeatherForLocation",
             method= RequestMethod.POST,
