@@ -40,7 +40,8 @@ public class GreetingController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE
     )
     ModelAndView dataFromPost( @RequestBody MultiValueMap requestData ) {
-        System.out.println("just:" + requestData);
+        System.out.println("all data:" + requestData);
+        System.out.println("selected: " + requestData.get("locationSelected"));
         return new ModelAndView("greetingInfo", "location", requestData) ;
     }
 
