@@ -17,7 +17,7 @@
 
          console.log("Loaded");
 
-         setInterval(fetchWeatherStatus, 60 * 1000);
+         setInterval(fetchWeatherStatus, 10 * 1000);
     });
 
     function fetchWeatherStatus(){
@@ -25,7 +25,7 @@
          $('#WeatherWarning').text("... looking ...");
          $.getJSON("weatherStatus.json")
          .done(function(j) {
-             console.log( "Weather status: " + j );
+             console.log( "Weather status: " + JSON.stringify(j) );
               $('#WeatherTimestamp').text(getTimeStampNow());
               $('#WeatherWarning').text(j.status);
          })
